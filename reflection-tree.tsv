@@ -1,0 +1,19 @@
+id	parentId	type	text	options	target	signal
+START	null	start	Good evening. Let's reflect on your day.			
+Q1	START	question	How was your day overall?	Productive|Tough|Mixed|Frustrating		
+D1	Q1	decision		answer=Productive|Mixed:Q2A;answer=Tough|Frustrating:Q2B		
+Q2A	D1	question	When things went well today, what was the main reason?	I planned well|Team supported me|I got lucky|I adjusted quickly		axis1:internal
+Q2B	D1	question	When things went wrong today, what was your first reaction?	Tried to fix what I can|Waited for others|Felt stuck|Blamed situation		axis1:external
+R1	Q2A	reflection	You took ownership of your day. Your actions mattered.			axis1:internal
+R2	Q2B	reflection	It felt out of control, but small choices still matter.			axis1:external
+B1	R1	bridge	Now let’s think about what you gave today.		Q3	
+B2	R2	bridge	Now let’s think about what you gave today.		Q3	
+Q3	null	question	In one moment today, what did you focus on?	Helping someone|Doing my work|Expecting support|Feeling unrecognized		
+Q4	Q3	question	What describes your effort today?	Went beyond role|Did required work|Expected more from others|Others should do better		
+R3	Q4	reflection	Contribution builds long-term value.			
+B3	R3	bridge	Now let’s expand your thinking.		Q5	
+Q5	null	question	When you think about today's challenges, who comes to mind?	Only me|My team|A person|Customers		
+Q6	Q5	question	What mattered most in your work today?	My tasks|Team success|Helping someone|User value		
+R4	Q6	reflection	Looking beyond yourself creates deeper impact.			
+SUMMARY	R4	summary	You reflected on responsibility, contribution, and awareness today.			
+END	SUMMARY	end	Good job reflecting. See you tomorrow.			
